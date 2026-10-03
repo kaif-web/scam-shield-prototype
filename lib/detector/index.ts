@@ -5,17 +5,17 @@ export type Detection = { score: number; level: RiskLevel; categories: Category[
 
 const groups: { category: Category; words: string[]; weight: number; explanation: string }[] = [
  { category:'Digital arrest', words:['digital arrest','cyber crime','cbi','ed','ncb','customs','police officer','arrest warrant','money laundering','drugs found','video call','giraftaar','गिरफ्तार','जांच अधिकारी','parcel me drugs'], weight:28, explanation:'Impersonates authorities or uses a digital-arrest story.' },
- { category:'Fake KYC / bank', words:['kyc expire','kyc update','account blocked','pan update','aadhaar update','sim block','credit card points','बैंक खाता','केवाईसी','खाता बंद'], weight:22, explanation:'Creates fear around KYC, banking or identity details.' },
- { category:'OTP / UPI', words:['share otp','otp batao','upi pin','collect request','scan to receive','anydesk','teamviewer','quicksupport','ओटीपी','यूपीआई पिन','otp dena'], weight:30, explanation:'Requests credentials, payment approval or remote access.' },
- { category:'Parcel / courier', words:['courier','parcel','customs duty','delivery failed','drugs in parcel','fedex','dhl','कूरियर','पार्सल'], weight:20, explanation:'Uses a parcel or customs pretext.' },
+ { category:'Fake KYC / bank', words:['kyc expire','kyc update','kyc','account blocked','account will','pan update','aadhaar update','sim block','credit card points','बैंक खाता','केवाईसी','खाता बंद'], weight:22, explanation:'Creates fear around KYC, banking or identity details.' },
+ { category:'OTP / UPI', words:['share otp','share it','otp batao','upi pin','collect request','scan to receive','scan this qr','anydesk','teamviewer','quicksupport','ओटीपी','यूपीआई पिन','otp dena'], weight:30, explanation:'Requests credentials, payment approval or remote access.' },
+ { category:'Parcel / courier', words:['courier','parcel','customs duty','clearance fee','processing fee','delivery failed','drugs in parcel','drugs','fedex','dhl','कूरियर','पार्सल'], weight:20, explanation:'Uses a parcel or customs pretext.' },
  { category:'Utility disconnection', words:['electricity disconnected','power cut','bill pending','meter will be disconnected','bijli kat','बिजली कट','gas connection'], weight:20, explanation:'Threatens utility disconnection to force immediate payment.' },
- { category:'Lottery / prize', words:['you won','lottery','kbc winner','cash prize','gift voucher','इनाम','लॉटरी','बधाई हो'], weight:20, explanation:'Promises an unexpected prize or reward.' },
+ { category:'Lottery / prize', words:['you won','lottery','kbc winner','cash prize','gift voucher','winner','इनाम','लॉटरी','बधाई हो'], weight:20, explanation:'Promises an unexpected prize or reward.' },
  { category:'Job / investment', words:['part time task','telegram task','guaranteed return','double your money','crypto profit','investment opportunity','work from home','घर बैठे कमाई','गारंटीड रिटर्न'], weight:23, explanation:'Promises easy money, jobs or guaranteed returns.' },
  { category:'Malicious app', words:['.apk','install this app','update app','download application','rto challan','challan apk','एपीके'], weight:30, explanation:'Pushes an app or file that can steal access.' },
 ]
 
 const signals = [
- { words:['immediately','urgent','within 30 minutes','abhi','turant','तुरंत','अभी'], weight:14, signal:'urgency', explanation:'Pressures you to act before you can verify.' },
+ { words:['immediately','urgent','today','pay now','right now','within 30 minutes','abhi','turant','तुरंत','अभी'], weight:14, signal:'urgency', explanation:'Pressures you to act before you can verify.' },
  { words:['do not tell anyone','stay on call','kisi ko mat batana','किसी को मत बताना','secret'], weight:18, signal:'secrecy', explanation:'Tries to isolate you from trusted people.' },
  { words:['pay','send money','transfer','fine','penalty','paise','पैसे','रुपये','payment'], weight:18, signal:'money request', explanation:'Requests money, a fine or a payment.' },
  { words:['otp','pin','password','pan number','aadhaar','account details'], weight:18, signal:'sensitive data', explanation:'Requests secrets or identity information.' },

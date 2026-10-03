@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { SiteShell } from '@/components/site-shell'
 import { AlertTriangle, ArrowRight, CheckCircle2, ClipboardCheck, Clock3, Eye, Link2, Mic, PhoneCall, ShieldCheck, Siren, Users, Volume2, VolumeX, Zap } from 'lucide-react'
 
 const samples = [
@@ -57,7 +58,7 @@ export default function Page() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f6fbfb] text-slate-950">
+    <SiteShell><main className="min-h-screen bg-[#f6fbfb] text-slate-950">
       <header className="border-b border-slate-200/80 bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <div className="flex items-center gap-3"><div className="grid size-10 place-items-center rounded-2xl bg-[#0f766e] text-white shadow-lg shadow-teal-900/15"><ShieldCheck /></div><div><p className="text-lg font-black tracking-tight">Scam<span className="text-[#0f766e]">Shield</span></p><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400">Private. Explainable. Local.</p></div></div>
@@ -74,6 +75,6 @@ export default function Page() {
       <section className="mx-auto max-w-7xl px-5 pb-16 lg:px-8"><div aria-live="polite" className={`rounded-3xl border p-5 sm:p-7 ${result.level === 'safe' ? 'border-emerald-200 bg-emerald-50' : result.level === 'suspicious' ? 'border-amber-200 bg-amber-50' : 'border-red-200 bg-red-50'}`}><div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"><div className="flex items-center gap-5"><div className={`grid size-20 shrink-0 place-items-center rounded-full border-8 bg-white text-2xl font-black ${result.level === 'safe' ? 'border-emerald-300 text-emerald-700' : result.level === 'suspicious' ? 'border-amber-300 text-amber-700' : 'border-red-300 text-red-700'}`}>{result.score}</div><div><div className="flex items-center gap-2"><p className="text-xl font-black">{levelCopy[result.level as keyof typeof levelCopy]}</p>{result.level === 'safe' ? <CheckCircle2 className="text-emerald-600" /> : <AlertTriangle className="text-red-600" />}</div><p className="mt-1 text-sm text-slate-600">{isHindi ? 'आपके संदेश का स्थानीय विश्लेषण' : 'Local analysis of your message'} · {result.categories.length || 'No'} pattern groups matched</p></div></div><div className="flex flex-wrap gap-2">{result.reasons.slice(0, 3).map((reason) => <span key={reason} className="rounded-lg bg-white/80 px-3 py-2 text-xs font-semibold text-slate-700">{reason}</span>)}</div></div>{result.level !== 'safe' && <div className="mt-6 flex flex-wrap gap-3 border-t border-black/5 pt-5 text-sm font-bold"><span className="flex items-center gap-2"><PhoneCall className="text-red-600" /> Hang up</span><span className="flex items-center gap-2"><ShieldCheck className="text-red-600" /> Never share OTP or PIN</span><a href="tel:1930" className="flex items-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-white">Call 1930</a><button className="flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-slate-700"><Users /> Notify my family</button></div>}</div></section>
 
       <footer className="border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><p><strong className="text-slate-900">ScamShield</strong> · Built for safer digital India</p><div className="flex gap-5"><a href="/insights">Insights</a><a href="/report">Report help</a><a href="/guardian">Guardian</a></div></div></footer>
-    </main>
+    </main></SiteShell>
   )
 }
