@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'ScamShield — Pause before the scam takes your money',
+  description: 'Private, explainable scam detection for calls, SMS and WhatsApp in English, Hindi and Hinglish.',
   generator: 'v0.app',
   icons: {
     icon: [
